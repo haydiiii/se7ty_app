@@ -1,11 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:se7ty_app/core/utils/app_colors.dart';
 import 'package:se7ty_app/core/utils/app_text_styles.dart';
-import 'package:se7ty_app/splash_view.dart';
+import 'package:se7ty_app/splash.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyC8VhLJJ1e1pAQth7zVl3cNJ6vje6IDPDk",
+          appId: "com.example.se7ty_app",
+          messagingSenderId: "705001657828",
+          projectId: "se7ety-eraa117"));
   runApp(const MainApp());
 }
 
@@ -41,19 +49,8 @@ class MainApp extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          dividerTheme: DividerThemeData(
-            color: AppColors.black,
-            indent: 10,
-            endIndent: 10,
-          ),
           fontFamily: GoogleFonts.cairo().fontFamily),
       home: const SplashView(),
-      builder: (context, child) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: child!,
-        );
-      },
     );
   }
 }

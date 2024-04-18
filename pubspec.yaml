@@ -7,10 +7,13 @@ environment:
   sdk: '>=3.3.3 <4.0.0'
 
 dependencies:
+  firebase_core: ^2.30.0
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
   gap: ^3.0.1
   google_fonts: ^6.1.0
+  smooth_page_indicator: ^1.1.0
   svg_flutter: ^0.0.1
 
 dev_dependencies:
@@ -20,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
