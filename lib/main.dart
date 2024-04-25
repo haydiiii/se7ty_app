@@ -1,9 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:se7ty_app/core/utils/app_colors.dart';
-import 'package:se7ty_app/core/utils/app_text_styles.dart';
+
+import 'package:se7ty_app/feature/on_boarding/on_boarding.dart';
 import 'package:se7ty_app/splash.dart';
 
 void main() {
@@ -23,34 +22,25 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: AppColors.white,
-          snackBarTheme: SnackBarThemeData(backgroundColor: AppColors.redColor),
-          appBarTheme: AppBarTheme(
-              titleTextStyle: getTitleStyle(color: AppColors.white),
-              centerTitle: true,
-              elevation: 0.0,
-              actionsIconTheme: IconThemeData(color: AppColors.color1),
-              backgroundColor: AppColors.color1),
           inputDecorationTheme: InputDecorationTheme(
-            contentPadding:
-                const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
-            border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              borderSide: BorderSide.none,
-            ),
-            filled: true,
-            suffixIconColor: AppColors.color1,
-            prefixIconColor: AppColors.color1,
-            fillColor: AppColors.scaffoldBG,
-            hintStyle: GoogleFonts.poppins(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-          fontFamily: GoogleFonts.cairo().fontFamily),
-      home: const SplashView(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide.none,
+              ),
+              hintStyle: TextStyle(color: AppColors.geryColor),
+              suffixIconColor: AppColors.color1,
+              prefixIconColor: AppColors.color1,
+              filled: true,
+              fillColor: AppColors.color1.withOpacity(0.1))),
+      debugShowCheckedModeBanner: false,
+      home: const OnBoardingView(),
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: child!,
+        );
+      },
     );
   }
 }
